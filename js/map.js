@@ -177,6 +177,12 @@ if (regionPath) {
                         document.getElementById('map-indicator').innerHTML = group.name
                         document.getElementById('map-indicator').style.display = 'inline'
                     })
+                    document.getElementById(el).addEventListener('click', e => {
+                        e.stopPropagation()
+                        document.getElementById('pop-title').innerHTML = group.name
+                        document.getElementById('pop-description').innerHTML = group.description
+                        document.getElementById('pop').classList.add('active')
+                    })
                     document.getElementById(el).addEventListener('mouseleave', () => {
                         path.classList.remove('active')
                         document.getElementById('map-indicator').innerHTML = ''
@@ -187,3 +193,17 @@ if (regionPath) {
         })
     })
 }
+
+window.addEventListener('click', () => {
+    document.querySelectorAll('.pop').forEach(pop => {
+        pop.classList.remove('active')
+    })
+})
+
+window.addEventListener('load', () => {
+    document.querySelectorAll('.pop .close').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.closest('.pop').classList.remove('active')
+        })
+    })
+})
