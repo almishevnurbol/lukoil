@@ -1,0 +1,25 @@
+#map path {
+    transition: all .5s;
+    fill: rgba(129, 129, 129, 1);
+    stroke: rgba(0, 0, 0, 0.5);
+}
+
+#map path.active {
+    fill: #fff;
+    cursor: pointer;
+}
+
+#map-indicator {
+    position: absolute;
+    display: inline;
+    background: rgba(0, 0, 0, 1);
+    color: #f1f1f1;
+    padding: 10px 30px;
+    font: 20px Arial;
+    border-radius: 5px;
+    min-width: 300px;
+    text-transform: capitalize;
+    display: none;
+    top: 0;
+    right: 0;
+}
