@@ -5,7 +5,7 @@
 }
 
 #map path.active {
-    fill: #fff;
+    fill: #fff !important;
     cursor: pointer;
 }
 
@@ -26,4 +26,11 @@
 
 .pop.active {
     display: block !important;
+}
+
+.dot._12 {
+    left: 28%;
+    top: 34%;
+    width: 12px;
+    height: 12px;
 }
