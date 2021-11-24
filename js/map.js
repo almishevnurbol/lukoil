@@ -205,6 +205,14 @@ let regionGroups = [
     }
 ]
 
+let mapWrapper = document.getElementById('map-wrapper')
+
+if (mapWrapper) {
+    points.forEach((point, index) => {
+        mapWrapper.innerHTML += `<a class='dot _12' style='left:${point._X}%;top:${point._Y}%' onclick='openPopup(${index}, event)'></a>`
+    })
+}
+
 let regionPath = document.querySelectorAll('#map path')
 
 if (regionPath) {
@@ -214,9 +222,7 @@ if (regionPath) {
         regionGroups.forEach(group => {
             if (group.regions.includes(id)) {
                 group.regions.forEach(el => {
-                    // debugger
                     document.getElementById(el).addEventListener('mouseenter', () => {
-                        debugger
                         path.classList.add('active')
                         document.getElementById('map-indicator').innerHTML = group.name
                         document.getElementById('map-indicator').style.display = 'inline'
@@ -254,14 +260,6 @@ window.addEventListener('load', () => {
         })
     })
 })
-
-let mapWrapper = document.getElementById('map-wrapper')
-
-if (mapWrapper) {
-    points.forEach((point, index) => {
-        mapWrapper.innerHTML += `<a class='dot _12' style='left:${point._X}%;top:${point._Y}%' onclick='openPopup(${index}, event)'></a>`
-    })
-}
 
 function openPopup(index, event) {
     event.stopPropagation()
